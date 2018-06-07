@@ -22,7 +22,7 @@
 		</ul>
 	</div>
 </div>
-<div class="body" bgcolor="red">
+<div class="body" >
 	<table id="regTable">
 		<tbody>
 			<tr>
