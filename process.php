@@ -2,7 +2,7 @@
 $conn = mysqli_connect('localhost', 'root', 'matt', 'stack')
 			or die('Unable to connect to the database');
 
-	//get values passe from formin login.php file
+	//get values passe from form in login.php file
 	
 	$email = $_POST['email'];
 	$password = $_POST['password'];
