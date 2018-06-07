@@ -34,7 +34,7 @@ Join the worlde's largest developer community.</p></pre>
 					<li><a href=""></a>Facebook</li>
 					<li><a href=""></a>Sign Up</li>
 				</ul> -->
-				<pre  class="link"><a href="https://mail.google.com/signup"><img src="assets/images/g.png" style="width: 3vw"><img src="assets/images/gg.png"></a><a href=""><img src="assets/images/facebook.png"></a><a href="">Sign Up</a>
+				<pre  class="link"><a href="https://mail.google.com/signup"><img src="assets/images/g.png" style="width: 3vw"><img src="assets/images/gg.png"></a><a href=""><img src="assets/images/facebook.png"></a><a href="register.php">Sign Up</a>
 By registering, You agree to the privacy policy and terms of service</pre>
 			</p>
 	</div>
