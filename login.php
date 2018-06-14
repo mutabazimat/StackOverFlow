@@ -1,25 +1,32 @@
+<?php include('process.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login Page</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Registration</title>
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
+
 </head>
 <body>
-<div id="frm">
-	<form action="process.php" method="POST">
-	<h2 style="color:white">Log In</h2>
-		<P>
+	<div class="header">
+		<h2>Log in</h2>
+	</div> 
+	<form action="login.php" method="POST">
+		
+		<div class="input-group">
 			<label>Email</label>
-			<input type="text" id="user" name="email">
-		</P>
+			<input type="text" name="email"> 
+		</div>
+		<div class="input-group">
+			<label>Password</label>
+			<input type="password" name="password_1"> 
+		</div>
+		
+		<div class="input-group">
+			<button type="submit" name="login" class="btn">Sign in</button>
+		</div>
 		<p>
-			<label>password</label>
-			<input type="password" id="pass" name="password">
+			Are you a new user? <a href="register.php">Sign Up</a>
 		</p>
-		<p><input type="submit" id="btn" value="Log In"></p>
-		<p><a href="#">forgot password?</a></p>
 	</form>
-
-</div>
 </body>
 </html>
