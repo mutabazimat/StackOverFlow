@@ -1,28 +1,44 @@
 <?php 
-$conn = mysqli_connect('localhost', 'root', 'matt', 'stack')
+	session_start();
+	$username = "";
+	$email = "";
+	$errors = array();
+
+	//database connection
+	$conn = mysqli_connect('localhost', 'root', 'matt', 'php')
 			or die('Unable to connect to the database');
 
-	//get values passe from form in login.php file
-	
-	$email = $_POST['email'];
-	$password = $_POST['password'];
+	//if the register button is clicked
+	if (isset($_POST['register'])) {
+		$username = mysqli_real_escape_string($conn, $_POST['username']);
+		$email = mysqli_real_escape_string($conn, $_POST['email']);
+		$password_1 = mysqli_real_escape_string($conn, $_POST['password_1']);
+		$password_2 = mysqli_real_escape_string($conn, $_POST['password_2']);
 
-	//to prevent mysql injection
+		//validation
+		if (empty($username)) {
+			array_push($errors, "Username is required");
+		}
+		if (empty($email)) {
+			array_push($errors, "Email  is required");
+		}
+		if (empty($password_1)) {
+			array_push($errors, "password is required");
+		}
+		if ($password_1 != $password_2) {
+			array_push($errors, "The two passwords do not march.");
+		}
 
-	$email = stripcslashes($email);
-	$password = stripcslashes($password);
-	 $email = mysqli_real_escape_string($conn,$email);
-	 $password = mysqli_real_escape_string($conn,$password);
-	
-	//Query the database for user
+		//if threre no errors
+		if (count($errors) == 0){
+			$password = $password_1;
+			$sql = "INSERT INTO USER (username, email, password) 
+			VALUES ('$username', '$email', '$password')";
+			mysqli_query($conn, $sql);
+			$_SESSION['username'] = $username;
+			$_SESSION['success'] = "You are now logged in";
+			header('location: success.php');
+		}
 
-	$result = mysqli_query($conn,"SELECT  * FROM user WHERE email ='$email'
-	 AND password = '$password'");
-				// or die("Unable  to query  database". mysql_error());
-	$row = mysqli_fetch_array($result);
-	if ($row['email']==$email && $row['password']==$password) {
-		echo "login success";
 	}
-	else
-		echo "login Failed";
 ?>

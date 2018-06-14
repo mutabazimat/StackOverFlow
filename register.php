@@ -1,69 +1,46 @@
+<?php 
+	//error_reporting(0);
+	include('process.php'); 
+?>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>tres</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Registration</title>
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
+
 </head>
 <body>
-<div id="head">
-	<div class="upper">
-		<ul class="lft">
-			<li><a href="#"><img src="assets/images/logo.png" style="width: 15vw; height:3vw"></a></li>
-			<li style="background-color: orange; color: #fff"><a href="#">NEW</a></li>
-			<li><a href="#">Questions</a></li>
-			<li><a href="#">Users</a></li>
-			<li><a href="#"><input type="text" placeholder="Search"></a></li>
-			</ul>
-			<ul class="right">
-			<li><a href="login.php">Log In</a></li>
-			<li style="background-color: blue; color: #fff"><a href="#">Sign Out</a></li><br/>
-			<li><a href="login.php">  </a></li>
-		</ul>
-	</div>
-</div>
-<div class="body" >
-	<table id="regTable">
-		<tbody>
-			<tr>
-				<td>User Id</td>
-				<td><input type="text" name="userid"></td>
-			</tr>
-			<tr>
-				<td>Email</td>
-				<td><input type="text" name="email"></td>
-			</tr>
-			<tr>
-				<td>First Name</td>
-				<td><input type="text" name="fname"></td>
-			</tr>
-			<tr>
-				<td>Last Name</td>
-				<td><input type="text" name="lname"></td>
-			</tr>
-			<tr>
-				<td>Location</td>
-				<td><input type="text" name="location"></td>
-			</tr>
-			<tr>
-				<td>Password</td>
-				<td><input type="password" name="email"></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><input type="Submit" name="save" value="Save"></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><input type="Submit" name="view" value="Viewe"></td>
-			</tr>
-		</tbody>
-	</table>
-</div>
+	<div class="header">
+		<h2>Register</h2>
+	</div> 
+	<form action="register.php" method="POST">
 
+	<!-- displayibng errors -->
+	<?php include('errors.php'); ?>
 
-<div id="foot">
-	&copy Tres-SDA, Thursday Group
-</div>
+		<div class="input-group">
+			<label>Username</label>
+			<input type="text" name="username" value="<?php echo "$username"; ?>"> 
+		</div>
+		<div class="input-group">
+			<label>Email</label>
+			<input type="text" name="email" value="<?php echo "$email"; ?>"> 
+		</div>
+		<div class="input-group">
+			<label>Password</label>
+			<input type="password" name="password_1" value="<?php echo "$password"; ?>"> 
+		</div>
+		<div class="input-group">
+			<label>Confirm Password</label>
+			<input type="password" name="password_2"> 
+		</div>
+		<div class="input-group">
+			<button type="submit" name="register" class="btn">Register</button>
+		</div>
+		<p>
+			Already a member? <a href="login.php">Sin in</a>
+		</p>
+	</form>
 </body>
 </html>
+
